@@ -48,15 +48,12 @@ Output: [[""]]
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         sorts = {}
-        for i in range(len(strs)):
-            key = "".join(sorted(strs[i]))
+        for word in strs:
+            key = "".join(sorted(word))
             if key not in sorts:
                 sorts[key] = []
-            sorts[key].append(i)
+            sorts[key].append(word)
         new_list = []
         for value in sorts.values():
-            sub_list = []
-            for i in value:
-                sub_list.append(strs[i])
-            new_list.append(sub_list)
+            new_list.append(value)
         return new_list
