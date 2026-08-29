@@ -82,14 +82,9 @@ Output: [""]
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
-        encoded = ""
         if len(strs) == 0:
             return chr(258)
-        for i in range(len(strs) - 1):
-            encoded = encoded + strs[i] + chr(257)
-        encoded = encoded + strs[len(strs)-1]
-        return encoded
-
+        return chr(257).join(strs)
 
     def decode(self, s: str) -> List[str]:
         if s == chr(258):
